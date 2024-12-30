@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class MemeServico {
@@ -18,5 +19,18 @@ public class MemeServico {
 
     public List<Meme> listaTodosMemes() {
         return IRepositorioMeme.findAll();
+    }
+
+    public Meme memeDoDia(){
+        List<Meme> memes = IRepositorioMeme.findAll();
+
+        if(memes.size() == 0){
+            return null;
+        }
+
+        Random random = new Random();
+
+        Integer indiceAleatorio = random.nextInt(memes.size());
+        return memes.get(indiceAleatorio);
     }
 }

@@ -23,4 +23,9 @@ public class MemeController {
     public Meme novoMeme(@RequestBody Meme meme) {
         return memeServico.novoMeme(meme);
     }
+
+    @GetMapping("/memedodia")
+    public Meme memeDoDia(){
+        return memeServico.memeDoDia();
+    }
 }
